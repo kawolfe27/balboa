@@ -1,0 +1,344 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background: url('../images/bluebackground2.jpg') no-repeat center center fixed #1226b8;
+    background-color: white;
+    background-size: cover;
+    margin-bottom: 60px;
+    padding-top: 70px;
+}
+
+th {
+     font-size: 14px;
+}
+
+td {
+    font-size: 14px;
+}
+
+.socialMedia {
+    float: right;
+}
+
+hr {
+    border-top: 1px solid #ccc;
+}
+
+.transparent{
+    background:rgba(255,255,255,0.90);
+}
+
+.navbar {
+    background-color: lightgray;
+    margin-bottom: 0;
+}
+
+.navbar-brand {
+    padding: 0 0;
+}
+
+.main-container {
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.main-page-content-block {
+    background-color: white;
+    color: darkgray;
+    min-height: 300px;
+    margin-top: 2.0em;
+    padding: 1.0em;
+    border: solid #ccc 1px;
+
+    /* rounded corners */
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+}
+
+.main-page-content-header {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5em;
+    color: darkblue;
+    text-transform: uppercase;
+}
+
+.borderless td, .borderless th {
+    border: none !important;
+}
+
+.hours-open {
+    color: green;
+}
+
+.hours-closed {
+    color: red;
+}
+
+.about {
+    color: white;
+}
+
+.container {
+    margin-top: 1.0em;
+}
+
+.my-modal-header {
+    background: url('../images/bluebackground2.jpg') #3F0000;
+    color: white;
+}
+
+.my-modal-footer {
+    background: url('../images/bluebackground2.jpg') #3F0000;
+    color: white;
+}
+
+.my-modal-body {
+    background-color: darkblue;
+    color: white;
+}
+
+.td {
+    padding: .5em;
+}
+
+/* the "x" button to close modal dialog boxes */
+.close {
+    color: white;
+    opacity: .75;
+}
+
+.close:hover {
+    color: white;
+    opacity: 1.0;
+}
+
+.glyphicon-fire { color: dodgerblue; }
+.glyphicon-fire:hover { color: darkblue; }
+.glyphicon-book,
+.glyphicon-cog,
+.glyphicon-ok-circle,
+.glyphicon-barcode,
+.glyphicon-bell,
+.glyphicon-user,
+.glyphicon-bookmark,
+.glyphicon-arrow-up,
+.glyphicon-king,
+.glyphicon-piggy-bank,
+.glyphicon-tree-conifer,
+.glyphicon-leaf,
+.glyphicon-link,
+.glyphicon-glass,
+.glyphicon-home,
+.glyphicon-tower,
+.glyphicon-wrench {
+    color: darkblue;
+}
+
+ul.nav-tabs span.glyphicon-user {
+    color: gray;
+}
+
+.glyphicon-tab {
+    color: gray;
+}
+
+#refresh-image {
+    float: right;
+}
+
+.overdue {
+    color: red;
+}
+
+.tabText {
+    color: black;
+    font-weight: bold;
+}
+
+.task-button {
+    font-size: 1.25em;
+}
+
+.image-container {
+    margin: 2em 0 2em 0;
+    width: 100%;
+}
+
+.loading-image {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    max-height: 200px;
+}
+
+.more-prompt {
+    font-size: 0.8em;
+}
+
+#print-header {
+    display: none;
+}
+
+.footer {
+    background-color: lightgrey;
+    opacity: 0.7;
+    border: 1.5em lightgray solid;
+    font-weight: normal;
+    position: absolute;
+    bottom: 0;
+    color: darkblue;
+    width: 100%;
+    height: 60px;
+}
+
+#copyright {
+    color: darkblue;
+    text-align: center;
+}
+
+/* bib detail display page */
+
+#bibInfo {
+    margin-left: 1.0em;
+    padding-left: 1.0em;
+    float: none;
+    max-width: 90%;
+    alignment: top;
+}
+
+#bibDetailTitle {
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: 'Merriweather', serif;
+    color: darkblue;
+}
+
+#bibDetailAuthor {
+    font-size: 1.25em;
+    font-family: 'Droid Sans', sans-serif;
+}
+
+#bibDetailSummary {
+    font-size: 1.25em;
+    font-style: italic;
+    font-family: 'Harmattan', sans-serif;
+}
+
+#detailJacket {
+    float: left;
+    width: 18.0em;
+    height: auto;
+    margin: 0;
+    alignment: top;
+}
+
+#materialTypeImage img {
+    width: 3.0em;
+    height: auto;
+}
+
+#holdForm {
+    text-align: center;
+}
+
+.on-hold-for-you-msg {
+    color: red;
+}
+
+.checked-out-to-you-msg {
+    color: darkgreen;
+}
+
+.overdue-to-you-msg {
+    color: red;
+}
+
+.item-specific-icon {
+    color: darkblue !important;
+}
+
+.volume-specific-icon {
+    color: darkgreen !important;
+}
+
+.bib-detail-side-panel {
+    background-color: white;
+    background-image: none;
+    text-align: center;
+
+    /* rounded corners */
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+
+    /* gradients */
+    background: -webkit-gradient(linear, left top, left bottom,
+    color-stop(0%, white), color-stop(15%, white), color-stop(100%, #FFF7E8));
+    background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3 130%);
+}
+
+.bib-detail-side-panel-link {
+    margin-bottom: 2.0em;
+}
+.bib-detail-bookjacket-col {
+    text-align: center;
+}
+
+.bookjacket-image {
+    max-width: 100%;
+}
+
+.panel-image {
+    max-width: 120px;
+    width: 100%;
+}
+
+#__GBS_Button0 img {
+    max-width: 100%;
+    width: auto;
+}
+
+/* The MARC display */
+
+.table-marc tbody tr td {
+    padding: 3px;
+    border-top: none;
+    font-size: .75em;
+}
+
+.marc-tag {
+    color: black;
+    font-weight: bold;
+}
+
+.marc-indicator {
+    color: red;
+}
+
+.marc-subfield {
+    color: green;
+}
+
+#accordion .panel-heading { padding: 0;}
+#accordion .panel-title > a {
+    display: block;
+    padding: 0.4em 0.6em;
+    outline: none;
+    font-weight:bold;
+    text-decoration: none;
+}
+
+#accordion .panel-title > a.accordion-toggle::before, #accordion a[data-toggle="collapse"]::before  {
+    content:"\e113"; /* chevron up */
+    float: right;
+    font-family: 'Glyphicons Halflings';
+    margin-right :1em;
+}
+#accordion .panel-title > a.accordion-toggle.collapsed::before, #accordion a.collapsed[data-toggle="collapse"]::before  {
+    content:"\e114";  /* chevron down */
+}

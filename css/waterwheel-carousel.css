@@ -1,0 +1,35 @@
+
+.carousel-block {
+    width: 100%;
+    font-family: 'Oswald', sans-serif;
+    padding: 1.0em;
+    background-color: #fff;
+    color: black;
+    display: inline-block;
+    alignment: center;
+
+    /* gradients */
+    background: -webkit-gradient(linear, left top, left bottom,
+    color-stop(0%, white), color-stop(55%, #d6f2f9), color-stop(130%, #d6f2f9));
+    background: -moz-linear-gradient(top, black 0%, #0f1e57 55%, #2f519b 130%);
+}
+
+#carousel {
+    width: auto;
+    border:none;
+    height:200px;
+    padding: 1.0em;
+    clear:both;
+    overflow:hidden;
+    background:transparent;
+    margin: auto;
+    alignment: center;
+}
+
+#carousel img {
+    visibility:hidden; /* hide images until carousel can handle them */
+    cursor:pointer; /* otherwise it's not as obvious items can be clicked */
+    height: 150px;
+    /* this currently crashes Safari on a Mac :( */
+    -webkit-box-reflect: below 1px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent) , to(rgba(250, 250, 250, 0.2)));
+}

@@ -1,0 +1,17 @@
+{
+  "target": {
+    "record": {
+      "type": "bib"
+    },
+    "field": {
+      "tag": "n"
+    }
+  },
+  "expr": {
+    "op": "equals",
+    "operands": [
+      "grrm",
+      ""
+    ]
+  }
+}

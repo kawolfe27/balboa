@@ -1,0 +1,27 @@
+a[href]:after {
+    content: none !important;
+}
+
+#print-header {
+    display: block;
+}
+
+#print-header img {
+    float: right;
+}
+
+.accountButton {
+    display: none;
+}
+
+.footer {
+    display: none;
+}
+
+.well {
+    border: 0;
+}
+
+.nav-tabs {
+    display: none;
+}

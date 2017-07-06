@@ -1,0 +1,37 @@
+{
+  "queries": [
+    {
+      "target": {
+        "record": {
+          "type": "bib"
+        },
+        "field": {
+          "tag": "n"
+        }
+      },
+      "expr": {
+        "op": "equals",
+        "operands": [
+          "sierra academic",
+          ""
+        ]
+      }
+    },
+    "and",
+    {
+      "target": {
+        "record": {
+          "type": "bib"
+        },
+        "id": 83
+      },
+      "expr": {
+        "op": "equals",
+        "operands": [
+          "03-06-2017",
+          ""
+        ]
+      }
+    }
+  ]
+}

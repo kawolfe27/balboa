@@ -1,0 +1,30 @@
+{
+  "item status": {
+    "1": "Display Case",
+    "a": "ASRS",
+    "i": "CAL-iR In Transit",
+    "t": "In Transit",
+    "(": "INN-Reach Paged",
+    "=": "INN-Reach Renew Denied",
+    "%": "INN-Reach/ILL Returned",
+    "m": "Missing",
+    "s": "On Search",
+    "-": "Available",
+    "j": "CAL-IR Received",
+    ")": "INN-Reach Canceled",
+    "_": "INN-Reach Re-request",
+    "+": "INN-Reach Renew Pending",
+    "o": "Lib Use Only",
+    "e": "Needs Barcode",
+    "b": "Online",
+    "n": "Billed",
+    "h": "CAR-IR Request",
+    "p": "In Processing",
+    "@": "INN-Reach Off-Site",
+    "#": "INN-Reach Received",
+    "&": "INN-Reach Requested",
+    "$": "Lost and Paid",
+    "!": "On Holdshelf",
+    "w": "Withdrawn"
+  }
+}
