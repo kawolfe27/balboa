@@ -1,48 +1,52 @@
 <div class="main-page-content-block">
-    <span class="main-page-content-header"><span class="glyphicon glyphicon-time"></span>  Today's Hours</span>
+    <h3><span class="glyphicon glyphicon-exclamation-sign"></span>  Customer Examples</h3>
     <table class="table table-responsive">
         <tr>
             <td>
-                <span class="hours-open">OPEN</span>
+                <span>Discovery Using APIs</span>
             </td>
             <td>
-                <a href="http://encore-academic.iii.com/iii/encore/?lang=eng" target="_blank">Michael Monroy Library</a>
-            </td>
-            <td class="text-right">
-                7:30 a.m. - 12 a.m.
+                <a href="https://opac.marmot.org" target="_blank">Marmot Library</a>
             </td>
         </tr>
         <tr>
             <td>
-                <span class="hours-open">OPEN</span>
+                <span>Auto Renewals</span>
             </td>
             <td>
-                <a href="http://encore-public.iii.com/iii/encore/?lang=eng" target="_blank">Reimers Science Library</a>
-            </td>
-            <td class="text-right">
-                7:30 a.m. - 12 a.m.
+                <a href="https://www.mcplibrary.org/autorenewal/" target="_blank">Middle Country Public Library</a>
             </td>
         </tr>
         <tr>
             <td>
-                <span class="hours-open">OPEN</span>
+                <span>Auto-Renewal Code Share</span>
             </td>
             <td>
-                <a href="http://encoredemo.iii.com/iii/encore/?lang=eng" target="_blank">Music Library</a>
-            </td>
-            <td class="text-right">
-                9:00 a.m. - 6:00 p.m.
+                <a href="https://github.com/jamesmatias/api-auto-renew" target="_blank">Middle Country Public Library</a>
             </td>
         </tr>
         <tr>
             <td>
-                <span class="hours-closed">CLOSED</span>
+                <span>Catalog API Code Share</span>
             </td>
             <td>
-                <a href="http://vital-share.iii.com:8080/vital/access/manager/Index" target="_blank">Special Collections & University Archives</a>
+                <a href="https://github.com/unt-libraries/catalog-api" target="_blank">University of North Texas</a>
             </td>
-            <td class="text-right">
-                10:00 a.m. - 5:00 p.m.
+        </tr>
+        <tr>
+            <td>
+                <span>Discovery Using APIs</span>
+            </td>
+            <td>
+                <a href="http://blacklight.hull.ac.uk/catalogue/?utf8=%25E2%259C%2593&search_field=all_fields&q=autism&button=" target="_blank">University of Hull</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Get the Balboa code here!
+            </td>
+            <td>
+                <a href="https://github.com/kawolfe27/balboa" target="_blank">Balboa Code</a>
             </td>
         </tr>
     </table>
