@@ -6,59 +6,89 @@ class config
     // will override these values with the user-specified ones.  These defaults should ONLY be in effect when the
     // app is first used.
 
+    // software version number. should be updated here every time we "release" a set of new functionality.
+    private $versionNo = '1.2.73';
+
+    /* GENERAL */
     private $institutionName = 'Balboa University Library';
+    private $logoFileName = 'images/library-logo.png';
+    private $bootstrapTheme = '/css/balboa.css';
+    private $locale = 'US';      /* options are US, CN and UK */
+    private $supportToDoList = true;
+
+    /* SERVERS */
     private $db = 'sierra-academic.iii.com';
     private $pacServer = 'encore-academic.iii.com';
     private $irServer = 'encorecalstate.iii.com';
     private $vitalServer = 'vital-share.iii.com:8080';
-    private $apiVer = '3';
+
+    /* SIERRA API */
+    private $apiVer = '4';
     private $apiKey = 'zIK+9ysnxp8WmcQe1eWxf8eXXvA6';
     private $apiSecret = 'shellmound';
+
+    /* ENRICHED CONTENT CREDENTIALS */
     private $contentCafeID = "Innovative";
     private $contentCafePassword = "Goldengate";
-/*
-When the patron places a hold, what pickup location do you want it to default to in the dropdown list?
-This value needs to be the pickup location code NOT the full spelled out description.
-*/
-    private $defaultHoldPickupLocationCode = 'm';
+
     /*
     When a user leaves a comment on the contact page it gets logged to a
     local CSV file. We also have the option of sending an email to a library
     staff member with the comment data. If you choose to have email sent be
     sure and enter a valid email address for the recipient and reply to.
     */
+
+    /* USER COMMENT EMAIL */
     private $commentSendEmail = '1';      // enter 1 to send email. 0 to NOT send email.
     private $commentSender = 'kelly.wolfe@iii.com';
-    private $replyTo = 'kelly.wolfe@iii.com';
+    private $replyTo = 'NO-REPLY@iii.com';
     private $commentRecipient = 'kelly.wolfe@iii.com';
+
+
+    /* CAROUSEL */
+
     /*
-The carousel is populated by a json search query generated from a review file in Sierra. If you want
-to have the carousel present a different set of results, just put your json search query in a text
-file and locate that file in the json subdirectory and indicate the name of your query file here.
- */
-    private $carouselQueryFilename = 'facpubsoriginal.json';
-/*
-even though a data set includes a reference to a specific title, if that title does NOT have an ISBN,
-then we should exclude it from the array of bibs used to generate the carousel data. The intent is to
-avoid including titles that won't be able to display a cover image.
- */
+    The text which displays as the header to the book carousel
+    */
+    private $carouselTitle = 'Faculty Publications';
+    /*
+    The carousel is populated by a json search query generated from a review file in Sierra. The default here is a
+    query that Kelly put together that works well (as of this writing).
+    */
+    private $carouselQueryString ='{"queries":[{"target":{"record":{"type":"bib"},"field":{"tag":"n"}},"expr":{"op":"equals","operands":["sierra academic",""]}},"and",{"target":{"record":{"type":"bib"},"id":83},"expr":{"op":"equals","operands":["03-06-2017",""]}}]}';
+    /*
+    * retrieving the search results and full bib data for the carousel takes a lot of time (about 10-15 seconds). So
+    * we cache the data by serializing the bib array to file. Every time the carousel is invoked, we check to see how
+    * old the cached data is.  If the cache data is older than the value specified here, we go back to the api's for
+    * fresh data (and then serialize the new data).
+    */
+    private $carouselDataRefresh = '0';
+
+
+    /* SEARCH RESULTS */
+
+    /*
+    even though a data set includes a reference to a specific title, if that title does NOT have an ISBN,
+    then we should exclude it from the array of bibs used to generate the carousel data. The intent is to
+    avoid including titles that won't be able to display a cover image.
+    */
     private $excludeBibsWithoutISBN = '1';
+
     /*
- * retrieving the search results and full bib data for the carousel takes a lot of time (about 10-15 seconds). So
- * we cache the data by serializing the bib array to file. Every time the carousel is invoked, we check to see how
- * old the cached data is.  If the cache data is older than the value specified here, we go back to the api's for
- * fresh data (and then serialize the new data).
- */
-    private $carouselDataRefresh = '12';
-    /*
- * Bib titles are hyperlinked throughout the app. This determines whether the link takes the user to:
- *      1 = the detail record in ENCORE
- *      0 = the detail record in the local app
- */
+    * Bib titles are hyperlinked throughout the app. This determines whether the link takes the user to:
+    *      1 = the detail record in ENCORE
+    *      0 = the detail record in the local app
+    */
     private $hyperlinkBibsToEncore = '0';
 
-    public $logoFileName = 'images/library-logo.png';
 
+    /* HOLDS */
+
+    /*
+    When the patron places a hold, what pickup location do you want it to default to in the dropdown list?
+    This value needs to be the pickup location code NOT the full spelled out description.
+    */
+    private $defaultHoldPickupLocationCode = 'm';
 
 
     public function __construct()
@@ -68,6 +98,11 @@ avoid including titles that won't be able to display a cover image.
         if (file_exists($configFilename)) {
             $serialData = file_get_contents($configFilename);
             $configObj = unserialize($serialData);
+            if (!is_object($configObj)) {
+                // the existing saved config file couldn't be instantiated as an object. Probably because we've added
+                // new properties to the class. So we'll create a new config file from our current defaults.
+                $this->serializeConfigData();
+            }
             $vars = get_object_vars($configObj);
             foreach ($vars as $name => $value) {
                 $this->$name = $value;
@@ -83,6 +118,12 @@ avoid including titles that won't be able to display a cover image.
         file_put_contents($_SERVER['DOCUMENT_ROOT'] . "/store/config/config.dat", $serialData);
     }
 
+
+    // we remove the config file so the app will have to revert to the defaults.
+    public static function removeConfigFile() {
+        unlink($_SERVER['DOCUMENT_ROOT'] . "/store/config/config.dat");
+    }
+
     /* PROPERTY GET AND SET METHODS */
 
     public function setInstitutionName($institutionName) {
@@ -91,6 +132,30 @@ avoid including titles that won't be able to display a cover image.
 
     public function getInstitutionName() {
         return $this->institutionName;
+    }
+
+    public function setBootstrapTheme($bootstrapTheme) {
+        $this->bootstrapTheme = $bootstrapTheme;
+    }
+
+    public function getBootstrapTheme() {
+        return $this->bootstrapTheme;
+    }
+
+    public function setLocale($locale) {
+        $this->locale = $locale;
+    }
+
+    public function getLocale() {
+        return $this->locale;
+    }
+
+    public function setSupportToDoList($supportToDoList) {
+        $this->supportToDoList = $supportToDoList;
+    }
+
+    public function getSupportToDoList() {
+        return $this->supportToDoList;
     }
 
     public function setDB($db) {
@@ -205,12 +270,20 @@ avoid including titles that won't be able to display a cover image.
         return $this->commentRecipient;
     }
 
-    public function setCarouselQueryFilename($carouselQueryFilename) {
-        $this->carouselQueryFilename = $carouselQueryFilename;
+    public function setCarouselTitle($carouselTitle) {
+        $this->carouselTitle = $carouselTitle;
     }
 
-    public function getCarouselQueryFilename() {
-        return $this->carouselQueryFilename;
+    public function getCarouselTitle() {
+        return $this->carouselTitle;
+    }
+
+    public function setCarouselQueryFilename($carouselQueryString) {
+        $this->carouselQueryString = $carouselQueryString;
+    }
+
+    public function getCarouselQueryString() {
+        return $this->carouselQueryString;
     }
 
     public function setExcludeBibsWithoutISBN($excludeBibsWithoutISBN) {
@@ -244,4 +317,7 @@ avoid including titles that won't be able to display a cover image.
     public function getLogoFileName() {
         return $this->logoFileName;
     }
-}
+
+    public function getVersionNo() {
+        return $this->versionNo;
+    }
