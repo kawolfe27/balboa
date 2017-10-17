@@ -33,7 +33,7 @@ class configOrig
     to have the carousel present a different set of results, just put your json search query in a text
     file and locate that file in the json subdirectory and indicate the name of your query file here.
      */
-    const CAROUSELQUERYFILENAME = 'facpubsoriginal.json';
+    const CAROUSELQUERYFILENAME = 'facpubs.json';
 
     /*
     even though a data set includes a reference to a specific title, if that title does NOT have an ISBN,
