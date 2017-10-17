@@ -8,7 +8,7 @@ $config = new config();
 
 if (isset($_SESSION["barcode"])) {
     include_once($_SERVER['DOCUMENT_ROOT'] . "/classes/sierra-patron.php");
-    $thisPatron = new sierraPatron($_SESSION["barcode"],$_SESSION["pin"]);
+    $thisPatron = new sierraPatron($config,$_SESSION["barcode"],$_SESSION["pin"]);
 } else {
     header("location: login.php");
     exit;
@@ -114,9 +114,18 @@ if (isset($_SESSION["barcode"])) {
 <?php
 if (isset($_SESSION['pin-just-changed'])) {
     if ($_SESSION['pin-just-changed'] == true) {
-        include "includes/pinchange.php";
+        include "includes/modal-pin-change-worked.php";
         echo "<script> $('#pinChangeModal').modal('show');</script>";
         unset($_SESSION['pin-just-changed']);
+    }
+}
+
+// if we got here via the registration process, display a message to the user.
+if (isset($_SESSION['registration-succeeded'])) {
+    if ($_SESSION['registration-succeeded'] == true) {
+        include "includes/modal-registration-succeeded.php";
+        echo "<script> $('#successfulRegistrationModal').modal('show');</script>";
+        unset($_SESSION['registration-succeeded']);
     }
 }
 ?>
