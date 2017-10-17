@@ -1,38 +1,44 @@
 <div class="main-page-content-block">
 
-    <span class="main-page-content-header"><span class="glyphicon glyphicon-flash"></span>  Library News</span>
+    <h3><span class="glyphicon glyphicon-flash"></span>  Encore/Webpac Customer Examples</h3>
     <table class="table table-responsive">
         <tr>
             <td class="text-nowrap">
-                March 1
+                <a href="http://www.oaklandlibrary.org/">Oakland Public Library</a>
             </td>
             <td>
-                <a href="http://library-maker-culture.weebly.com/what-are-they.html" target="_blank"><?php echo $config->getInstitutionName() ?> Receives Grant For Makerspace</a>
+                <a href="http://iii.ocls.info/">Orange Co Library System</a>
             </td>
         </tr>
         <tr>
             <td class="text-nowrap">
-                February 15
+                <a href="http://catalogue.goldcoast.qld.gov.au">Gold Coast Library</a>
             </td>
             <td>
-                <a href="http://encore-academic.iii.com/iii/encore/plus/C__Sbioinformatics__Orightresult__U?lang=eng&suite=cobalt" target="_blank">New Databases Added For The Bioinformatics Program</a>
+                <a href="http://libcat.dartmouth.edu/">Dartmouth College Library</a>
             </td>
         </tr>
         <tr>
             <td class="text-nowrap">
-                February 2
+                <a href="http://www.sandiego.edu/library/">University of San Diego</a>
             </td>
             <td>
-                <a href="https://www.linkedin.com/in/valerie-chase-3ba12a134/" target="_blank">Meet Your Librarians: An Interview With Valerie Chase</a>
+                <a href="http://library.deakin.edu.au/">Deakin University Library</a>
             </td>
         </tr>
         <tr>
             <td class="text-nowrap">
-                January 17
+                <a href="https://www.scu.edu/library/">Santa Clara University</a>
             </td>
             <td>
-                <a href="https://events.unl.edu" target="_blank">Welcome Back For The Spring 2017 Semester! See What's Happening In Your Library</a>
+                <a href="http://libweb.hofstra.edu/search/Y">Hofstra University Library</a>
             </td>
+        </tr>
+        <tr>
+            <td class="text-nowrap">
+                <a href="http://mel.org/">Michigan eLibrary</a>
+            </td>
+            <td></td>
         </tr>
     </table>
 </div>
